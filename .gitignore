@@ -1,1 +1,6 @@
-build/iphone/
+build/
+.settings
+.gitignore
+.project
+api.jsca
+build.log
