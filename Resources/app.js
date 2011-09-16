@@ -40,6 +40,9 @@
 		}, {
 			title : 'redbox_multi_views_scale.js',
 			hasChild : true,
+		}, {
+			title : 'info_view.js',
+			hasChild : true,
 		}];
 		tv.addEventListener("click", function(e) {
 			var w2 = Ti.UI.createWindow({

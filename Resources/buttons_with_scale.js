@@ -29,12 +29,7 @@ Ti.include("TKKeyframeAnimation.js");
 
 	//=== 初期位置にセット
 	bt1.opacity = bt2.opacity = bt3.opacity = 0.0;
-	bt1.transform = bt2.transform = bt3.transform = _getHiddenTransform();
-
-	//=== 初期位置のTransformを生成
-	function _getHiddenTransform() {
-		return Ti.UI.create2DMatrix().rotate(30).translate(0, 30).scale(5.0);
-	}
+	bt1.transform = bt2.transform = bt3.transform = Ti.UI.create2DMatrix().rotate(30).translate(0, 30).scale(5.0);
 
 	//=== 表示＆非表示フラグ
 	var isShow = false;
@@ -65,7 +60,7 @@ Ti.include("TKKeyframeAnimation.js");
 				duration : 500,
 				curve : Ti.UI.ANIMATION_CURVE_EASE_OUT,
 				delay : 100 * i,
-				transform : _getHiddenTransform(),
+				transform : Ti.UI.create2DMatrix().rotate(30).translate(0, 30).scale(5.0),
 				opaque : true,
 				opacity : 0.0,
 			});
