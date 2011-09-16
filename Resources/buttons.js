@@ -37,6 +37,7 @@ Ti.include("TKKeyframeAnimation.js");
 	//=== ウィンドウクリックでボタンを表示＆非表示に
 	w.addEventListener("click", function() {
 		isShow ? _hide() : _show();
+		isShow = !isShow;
 	});
 	//
 
@@ -51,7 +52,6 @@ Ti.include("TKKeyframeAnimation.js");
 				opacity : 1.0,
 			});
 		});
-		isShow = true;
 	}
 
 	function _hide() {
@@ -65,7 +65,6 @@ Ti.include("TKKeyframeAnimation.js");
 				opacity : 0.0,
 			});
 		});
-		isShow = false;
 	}
 
 })();

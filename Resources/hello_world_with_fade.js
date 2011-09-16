@@ -17,8 +17,15 @@
 	v.transform = Ti.UI.create2DMatrix().translate(0, 30);
 	v.opacity = 0.0;
 
-	//=== ウィンドウクリックで表示
-	w.addEventListener("click", _show);
+	//=== 表示フラグ
+	var isShow = false;
+
+	//=== ウィンドウクリックでボタンを表示＆非表示に
+	w.addEventListener("click", function() {
+		isShow ? _hide() : _show();
+		isShow = !isShow;
+	});
+	//
 
 	//=== 関数定義
 	function _show() {
@@ -28,6 +35,16 @@
 
 			opaque : true, //=== 透明度のアニメーションを有効にするフラグ
 			opacity : 1.0,
+		});
+	}
+	
+	function _hide() {
+		v.animate({
+			duration : 500,
+			transform : Ti.UI.create2DMatrix().translate(0, 30),
+
+			opaque : true, //=== 透明度のアニメーションを有効にするフラグ
+			opacity : 0.0,
 		});
 	}
 
