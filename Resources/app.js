@@ -13,7 +13,7 @@
 	//=== トップウィンドウの作成
 	function _createWindow() {
 		var w = Titanium.UI.createWindow({
-			title : 'TKKeyframeAnimationSample',
+			title : 'TKAnimationSample',
 			backgroundColor : '#fff',
 			tabBarHidden : true,
 			barColor : "black",
