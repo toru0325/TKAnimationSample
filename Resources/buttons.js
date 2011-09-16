@@ -3,9 +3,6 @@ Ti.include("TKKeyframeAnimation.js");
 //
 (function() {
 
-	//=== 表示フラグ
-	var isShow = false;
-
 	//=== レイアウト
 	var w = Ti.UI.currentWindow;
 	var bt1 = Ti.UI.createButton({
@@ -29,11 +26,6 @@ Ti.include("TKKeyframeAnimation.js");
 		top : 150 + 50 * 2,
 	});
 	w.add(bt3);
-	w.addEventListener("click", function() {
-		//=== ウィンドウクリックでボタンを表示＆非表示に
-		isShow ? _hide() : _show();
-	});
-	//
 
 	//=== 初期位置にセット
 	bt1.opacity = bt2.opacity = bt3.opacity = 0.0;
@@ -43,7 +35,16 @@ Ti.include("TKKeyframeAnimation.js");
 	function _getHiddenTransform() {
 		return Ti.UI.create2DMatrix().translate(0, 30);
 	}
-	
+
+	//=== 表示フラグ
+	var isShow = false;
+
+	//=== ウィンドウクリックでボタンを表示＆非表示に
+	w.addEventListener("click", function() {
+		isShow ? _hide() : _show();
+	});
+	//
+
 	function _show() {
 		[bt1, bt2, bt3].forEach(function(bt, i) {
 			bt.animate({

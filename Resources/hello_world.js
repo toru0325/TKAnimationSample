@@ -1,6 +1,4 @@
-Ti.include("TKKeyframeAnimation.js");
 
-//
 (function() {
 
 	//=== レイアウト
@@ -15,10 +13,12 @@ Ti.include("TKKeyframeAnimation.js");
 		height : 60,
 	});
 	w.add(v);
-	w.addEventListener("click", _show);
 
 	//=== vを初期位置にセット
 	v.transform = Ti.UI.create2DMatrix().translate(0, 250);
+
+	//=== ウィンドウクリックで表示
+	w.addEventListener("click", _show);
 
 	//=== 関数定義
 	function _show() {
