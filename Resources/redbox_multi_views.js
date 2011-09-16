@@ -5,20 +5,20 @@ Ti.include("TKKeyframeAnimation.js");
 	
 	//=== レイアウト
 	var w = Ti.UI.currentWindow;
-	var v2 = Ti.UI.createView({
+	var outerV = Ti.UI.createView({
 		width : 30,
 		height : 100*2,
 		borderWidth: 0,
 		borderColor: "white",
 	});
-	w.add(v2);
+	w.add(outerV);
 	var v = Ti.UI.createView({
 		backgroundColor : "red",
 		borderRadius : 10,
 		width : 30,
 		height : 30,
 	});
-	v2.add(v);
+	outerV.add(v);
 	
 	//=== ボタン配置
 	var bt = Ti.UI.createButton({
@@ -28,7 +28,7 @@ Ti.include("TKKeyframeAnimation.js");
 		bottom: 20,
 	});
 	bt.addEventListener("click", function(){
-		v2.borderWidth = v2.borderWidth ? 0 : 1; //=== 親ボックスの境界の表示＆非表示
+		outerV.borderWidth = outerV.borderWidth ? 0 : 1; //=== 親ボックスの境界の表示＆非表示
 	});
 	w.add(bt);
 
@@ -43,13 +43,13 @@ Ti.include("TKKeyframeAnimation.js");
 	anim.play(v);
 	
 	//=== 親ボックスのアニメーションスタート
-	var anim = new TKKeyframeAnimation([{
+	var anim2 = new TKKeyframeAnimation([{
 		duration : 600,
 		transform : Ti.UI.create2DMatrix().translate(100, 0),
 	}, {
 		duration : 600,
 		transform : Ti.UI.create2DMatrix().translate(-100, 0),
 	}], true);
-	anim.play(v2);
+	anim2.play(outerV);
 
 })();

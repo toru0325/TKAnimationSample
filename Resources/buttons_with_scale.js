@@ -3,7 +3,7 @@ Ti.include("TKKeyframeAnimation.js");
 //
 (function() {
 
-	//=== 表示フラグ
+	//=== 表示＆非表示フラグ
 	var isShow = false;
 
 	//=== レイアウト
@@ -29,17 +29,17 @@ Ti.include("TKKeyframeAnimation.js");
 		top : 150 + 50 * 2,
 	});
 	w.add(bt3);
+	w.addEventListener("click", function() {
+		//=== ウィンドウクリックでボタンを表示＆非表示に
+		isShow ? _hide() : _show();
+	});
+	//
 
 	//=== 初期位置にセット
 	bt1.opacity = bt2.opacity = bt3.opacity = 0.0;
 	bt1.transform = bt2.transform = bt3.transform = _getHiddenTransform();
 
-	//=== ウィンドウクリックでボタンを表示＆非表示に
-	w.addEventListener("click", function() {
-		isShow ? _hide() : _show();
-	});
-
-	//=== 隠れているポジションのTransformを生成
+	//=== 初期位置のTransformを生成
 	function _getHiddenTransform() {
 		return Ti.UI.create2DMatrix().rotate(30).translate(0, 30).scale(5.0);
 	}

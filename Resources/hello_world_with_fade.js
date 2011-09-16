@@ -17,15 +17,17 @@ Ti.include("TKKeyframeAnimation.js");
 	w.add(v);
 	w.addEventListener("click", _show);
 	
+	//=== vを初期位置にセット
 	v.transform = Ti.UI.create2DMatrix().translate(0, 30);
 	v.opacity = 0.0;
 	
+	//=== 関数定義
 	function _show(){
 		v.animate({
 			duration: 500,
 			transform: Ti.UI.create2DMatrix(),
 			
-			opaque: true, //=== opacityの遷移を有効にするフラグ
+			opaque: true, //=== 透明度のアニメーションを有効にするフラグ
 			opacity: 1.0,
 		});
 	}
